@@ -24,7 +24,7 @@ else:
 for point in checkpoints:
     print(f'#{point} - {checkpoints[point]}')
 
-# Задаёт точку отправления и прибытия
+# Задаёт точку отправления и прибытия.
 start_point = '-1'
 while True:
     # Если точки нет в словаре, тогда повторить ввод
