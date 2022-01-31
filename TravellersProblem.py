@@ -26,21 +26,15 @@ for point in checkpoints:
 
 # Задаёт точку отправления и прибытия
 start_point = '-1'
-while True:
-    # Если точки нет в словаре, тогда повторить ввод
-    if start_point not in checkpoints.keys():
-        start_point = int(input('Введите пункт отправления/прибытия:'))
-    else:
-        break
-
+while start_point not in checkpoints.keys():
+    start_point = int(input('Введите пункт отправления/прибытия:'))
 route_list = []  # Список возможных маршрутов
 alphabet = [i for i in range(100)]
 count_list = 0
 # Количество возможных комбинаций маршрутов в коллекции из n+1 точек для тестового набора, 
 # где первая и последняя точка заданы n^(n-1), где n это общее количество точек.
 for count_list in range(len(checkpoints) ** (len(checkpoints)-1)):
-    route_temp = []
-    route_temp.append(start_point)  # Добавим точку отправления
+    route_temp = [start_point]  # Добавим точку отправления
     quotient = count_list
     while quotient  > 0:
         quotient, remainder = divmod(quotient , len(checkpoints))
